@@ -16,7 +16,17 @@ function createEnv(path,options) {
              });
       if(options.filters){
           for(var f in options.filters){
-
+              env.addFilter(f,options.filters[f]);
           }
-      }       
+      }   
+      return env;    
 }
+
+var env  = createEnv('views',{
+    watch: true,
+    filters: {
+        hex: function (n) {
+            return '0x' + n.toString(16);
+        }
+    }
+});
