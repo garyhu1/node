@@ -1,9 +1,9 @@
 var fs = require("fs");
-var koa = require("koa");
+var Koa = require("koa");
 var router = require("koa-router")();
 var bodyParser = require("koa-bodyparser");
 
-var app = new koa();
+var app = new Koa();
 
 var files = fs.readdirSync(__dirname+"/counters");
 
