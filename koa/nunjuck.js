@@ -1,28 +1,28 @@
-var nunjuck = require("nunjucks");
+var nunjucks = require("nunjucks");
 
-function createEnv(path,options) {
-     var 
-         outoescape = options.outoescape&&true,
-         noCache = options.noCache&&false,
-         watch = options.watch&&false,
-         throwOnUndefined = opts.throwOnUndefined || false,
-         env = new nunjuck.Environment(
-             new nunjuck.FileSystemLoader("views",{
-                 noCache: noCache,
-                 watch: watch,
-             }),{
-                 outoescape: outoescape,
-                 throwOnUndefined: throwOnUndefined,
-             });
-      if(options.filters){
-          for(var f in options.filters){
-              env.addFilter(f,options.filters[f]);
-          }
-      }   
-      return env;    
+function createEnv(path, opts) {
+    var
+        autoescape = opts.autoescape && true,
+        noCache = opts.noCache || false,
+        watch = opts.watch || false,
+        throwOnUndefined = opts.throwOnUndefined || false,
+        env = new nunjucks.Environment(
+            new nunjucks.FileSystemLoader('views', {
+                noCache: noCache,
+                watch: watch,
+            }), {
+                autoescape: autoescape,
+                throwOnUndefined: throwOnUndefined
+            });
+    if (opts.filters) {
+        for (var f in opts.filters) {
+            env.addFilter(f, opts.filters[f]);
+        }
+    }
+    return env;
 }
 
-var env  = createEnv('views',{
+var env = createEnv('views', {
     watch: true,
     filters: {
         hex: function (n) {
@@ -30,3 +30,26 @@ var env  = createEnv('views',{
         }
     }
 });
+
+// var s = env.render("hello.html",{
+//     name: '<script>alert("小明")</script>'
+// });
+
+var s = env.render("hello.html",{
+    name: '<Garyhu>',
+    fruits: [
+        'apple',
+        'banner',
+        'orange',
+    ],
+    count: 1200
+});
+
+console.log(s);
+
+var str = env.render('extends.html',{
+    header: "test",
+    body: "自定义内容"
+});
+
+console.log(str);
