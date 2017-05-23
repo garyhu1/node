@@ -14,7 +14,7 @@
     "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/michaelliao/learn-javascript.git"
+        "url": "https://github.com/garyhu1/node.git"
     },
     "dependencies": {
         "koa": "2.0.0",

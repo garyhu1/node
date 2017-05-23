@@ -1,0 +1,29 @@
+{
+    "name": "hello-koa2",
+    "version": "1.0.0",
+    "description": "Hello Koa 2 example with async",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "mocha"
+    },
+    "keywords": [
+        "koa",
+        "async"
+    ],
+    "author": "Garyhu",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/garyhu1/node.git"
+    },
+    "dependencies": {
+        "koa": "2.0.0",
+        "koa-router": "7.0.0",
+        "koa-bodyparser": "3.2.0",
+        "mz": "2.4.0"
+    },
+    "devDependencies": {
+        "mocha": "3.0.2"
+    }
+}
