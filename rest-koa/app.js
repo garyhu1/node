@@ -4,6 +4,7 @@ const bodyParser = require('koa-bodyparser');
 
 const controller = require('./controller');
 
+//模板的加载
 const templating = require('./templating');
 
 const rest = require('./rest');
