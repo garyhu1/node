@@ -4,50 +4,48 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="learn javascript by www.liaoxuefeng.com">
+    <meta name="description" content="learn javascript by www.garyhu1.com">
     <title>Vue</title>
     <link rel="stylesheet" href="/static/css/bootstrap.css">
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/vue.js"></script>
     <script>
-
-$(function () {
-    var vm = new Vue({
-        el: '#vm',
-        data: {
-            title: 'TODO List',
-            todos: [
-                {
-                    name: 'Learn Git',
-                    description: 'Learn how to use git as distributed version control'
-                },
-                {
-                    name: 'Learn JavaScript',
-                    description: 'Learn JavaScript, Node.js, NPM and other libraries'
-                },
-                {
-                    name: 'Learn Python',
-                    description: 'Learn Python, WSGI, asyncio and NumPy'
-                },
-                {
-                    name: 'Learn Java',
-                    description: 'Learn Java, Servlet, Maven and Spring'
+        $(function () {
+            var vm = new Vue({
+                el: '#vm',
+                data: {
+                    title: 'TODO List',
+                    todos: [
+                        {
+                            name: 'Learn Git',
+                            description: 'Learn how to use git as distributed version control'
+                        },
+                        {
+                            name: 'Learn JavaScript',
+                            description: 'Learn JavaScript, Node.js, NPM and other libraries'
+                        },
+                        {
+                            name: 'Learn Python',
+                            description: 'Learn Python, WSGI, asyncio and NumPy'
+                        },
+                        {
+                            name: 'Learn Java',
+                            description: 'Learn Java, Servlet, Maven and Spring'
+                        }
+                    ]
                 }
-            ]
+            });
+            window.vm = vm;
+        });
+
+        function executeJs() {
+            try {
+                var code = $('#code').val();
+                var fn = new Function('var vm = window.vm;\n' + code);
+                fn();
+            } catch (e) { }
+            return false;
         }
-    });
-    window.vm = vm;
-});
-
-function executeJs() {
-    try {
-        var code = $('#code').val();
-        var fn = new Function('var vm = window.vm;\n' + code);
-        fn();
-    } catch (e) {}
-    return false;
-}
-
     </script>
 </head>
 
@@ -59,9 +57,9 @@ function executeJs() {
             </div>
             <nav class="collapse navbar-collapse" id="bs-navbar">
                 <ul class="nav navbar-nav">
-                    <li><a target="_blank" href="http://www.liaoxuefeng.com/">Get Courses</a></li>
-                    <li><a target="_blank" href="https://github.com/michaelliao/learn-javascript">Source Code</a></li>
-                    <li><a target="_blank" href="http://getbootstrap.com/">Resource</a></li>
+                    <li><a target="_blank" href="/">Get Courses</a></li>
+                    <li><a target="_blank" href="/">Source Code</a></li>
+                    <li><a target="_blank" href="/">Resource</a></li>
                 </ul>
             </nav>
         </div>
@@ -96,7 +94,8 @@ function executeJs() {
                         <h3>Try add or remove todo:</h3>
                         <form action="#" onsubmit="return executeJs()">
                             <div class="form-group">
-                                <textarea id="code" class="form-control" style="font-family: Menlo,Monaco,Consolas,'Courier New',monospace; resize:none;" rows="5">vm.todos.push({
+                                <textarea id="code" class="form-control" style="font-family: Menlo,Monaco,Consolas,'Courier New',monospace; resize:none;"
+                                    rows="5">vm.todos.push({
     name: 'Learn Linux',
     description: 'Learn Linux, ssh, iptables, lvm, etc'
 });</textarea>
@@ -113,9 +112,10 @@ function executeJs() {
                     </div>
                     <div class="panel-body">
                         <p>HTML:</p>
-                        <pre>&lt;div id="vm"&gt;
-    &lt;h3&gt;{{ title }}&lt;/h3&gt;
-    &lt;ol&gt;
+                        <pre>
+                            &lt;div id="vm"&gt;
+                          &lt;h3&gt;{{ title }}&lt;/h3&gt;
+                    &lt;ol&gt;
         &lt;li v-for="t in todos"&gt;
             &lt;dl&gt;
                 &lt;dt&gt;{{ t.name }}&lt;/dt&gt;
@@ -123,7 +123,8 @@ function executeJs() {
             &lt;/dl&gt;
         &lt;/li&gt;
     &lt;/ol&gt;
-&lt;/div&gt;</pre>
+&lt;/div&gt;
+                        </pre>
                         <p>JavaScript:</p>
                         <pre>var vm = new Vue({
     el: '#vm',
@@ -166,7 +167,7 @@ function executeJs() {
                     </div>
                     <div class="panel-body">
                         <p>full-stack JavaScript course</p>
-                        <p><a target="_blank" href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000">Read more</a></p>
+                        <p><a target="_blank" href="/">Read more</a></p>
                     </div>
                 </div>
             </div>
@@ -177,7 +178,7 @@ function executeJs() {
                     </div>
                     <div class="panel-body">
                         <p>the latest Python course</p>
-                        <p><a target="_blank" href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">Read more</a></p>
+                        <p><a target="_blank" href="/">Read more</a></p>
                     </div>
                 </div>
             </div>
@@ -188,7 +189,7 @@ function executeJs() {
                     </div>
                     <div class="panel-body">
                         <p>A course about git version control</p>
-                        <p><a target="_blank" href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">Read more</a></p>
+                        <p><a target="_blank" href="/">Read more</a></p>
                     </div>
                 </div>
             </div>
@@ -198,12 +199,12 @@ function executeJs() {
     <footer style="background-color:#ddd; padding: 20px 0;">
         <div class="container">
             <p>
-                <a target="_blank" href="http://www.liaoxuefeng.com">Website</a> -
-                <a target="_blank" href="https://github.com/michaelliao/learn-javascript">GitHub</a> -
-                <a target="_blank" href="http://weibo.com/liaoxuefeng">Weibo</a>
+                <a target="_blank" href="/">Website</a> -
+                <a target="_blank" href="/">GitHub</a> -
+                <a target="_blank" href="/">Weibo</a>
             </p>
-            <p>This JavaScript course is created by <a target="_blank" href="http://weibo.com/liaoxuefeng">@廖雪峰</a>.</p>
-            <p>Code licensed <a target="_blank" href="https://github.com/michaelliao/learn-javascript/blob/master/LICENSE">Apache</a>.</p>
+            <p>This JavaScript course is created by <a target="_blank" href="/">@Garyhu</a>.</p>
+            <p>Code licensed <a target="_blank" href="/">Apache</a>.</p>
         </div>
     </footer>
 </body>

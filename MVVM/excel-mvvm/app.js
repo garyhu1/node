@@ -27,7 +27,7 @@ app.use(staticFiles('/static/', __dirname + '/static'));
 
 app.use(async (ctx, next) => {
     if (ctx.request.path === '/') {
-        ctx.response.redirect('/static/index.html');
+        ctx.response.redirect('/views/index.html');
     } else {
         await next();
     }
